@@ -1,4 +1,6 @@
 ---
 
-info:
-  description: Training configuration repo
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: https://eureka-client:eureka@eureka-crumbier-encipherer.cfapps.io/eureka
