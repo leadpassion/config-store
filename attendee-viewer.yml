@@ -3,3 +3,19 @@
 feign:
   hystrix:
     enabled: true
+
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      clientId: ${vcap.services.attendee-viewer-oauth-credentials.credentials.clientId}
+      clientSecret: ${vcap.services.attendee-viewer-oauth-credentials.credentials.clientSecret}
+      accessTokenUri: https://github.com/login/oauth/access_token
+      userAuthorizationUri: https://github.com/login/oauth/authorize
+      clientAuthenticationScheme: form
+      preEstablishedRedirectUri: https://${vcap.application.application_uris[0]}/login
+      registered-redirect-uri: https://${vcap.application.application_uris[0]}/login
+      use-current-uri: false
+    resource:
+      userInfoUri: https://api.github.com/user
